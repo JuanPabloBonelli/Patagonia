@@ -7,6 +7,7 @@
         <link rel="icon" type="image/png" href="../images/logo.png" />
         <link rel="stylesheet" href="../assets/css/main.css" />
         <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+        <link rel="stylesheet" href="../assets/css/lightbox.min.css" />
     </head>
     <body class="is-preload">
 
@@ -45,7 +46,20 @@
                         <article id="work">
                                 <h2 class="major">Destinations</h2>
                                 <h3>🌎 Ushuaia, the city at the end of the world</h3>
-                                <span class="image fit"><img src="../images/ushuaia.jpg" alt="Photo of Ushuaia" /></span>
+                                <a href="../images/ushuaia/foto-1.jpg" data-lightbox="gallery-ushuaia" data-title="Les Éclaireurs Lighthouse">
+                                    <span class="image fit"><img src="../images/ushuaia/foto-1.jpg" alt="Les Éclaireurs Lighthouse" /></span>
+                                </a>
+                                <div hidden>
+                                    <a href="../images/ushuaia/foto-2.jpg" data-lightbox="gallery-ushuaia" data-title="Mountain and Sea"></a>
+                                    <a href="../images/ushuaia/foto-3.jpg" data-lightbox="gallery-ushuaia" data-title="Penguin Colony"></a>
+                                    <a href="../images/ushuaia/foto-4.jpg" data-lightbox="gallery-ushuaia" data-title="Ice and More"></a>
+                                    <a href="../images/ushuaia/foto-5.jpg" data-lightbox="gallery-ushuaia" data-title="Cruise Ship"></a>
+                                    <a href="../images/ushuaia/foto-6.jpg" data-lightbox="gallery-ushuaia" data-title="Snow Hike"></a>
+                                    <a href="../images/ushuaia/foto-7.jpg" data-lightbox="gallery-ushuaia" data-title="End of the World Train"></a>
+                                    <a href="../images/ushuaia/foto-8.jpg" data-lightbox="gallery-ushuaia" data-title="City in Winter"></a>
+                                    <a href="../images/ushuaia/foto-9.jpg" data-lightbox="gallery-ushuaia" data-title="Mountain and Sea"></a>
+                                    <a href="../images/ushuaia/foto-10.jpg" data-lightbox="gallery-ushuaia" data-title="City in Summer"></a>
+                                </div>
                                 <p>The southernmost city on the planet awaits you with unique landscapes where mountains, forests, and the sea come together in an unforgettable setting.</p>
                                 <p>🌿 From hikes in Tierra del Fuego National Park, to boat trips along the Beagle Channel, and the famous End of the World Train —every corner has something special for you.</p>
                                 <p>❄️ In winter, enjoy skiing at Cerro Castor and the most fun snow activities: sled rides, snowmobiles, and more!
@@ -54,7 +68,17 @@
                                 <p>💼 We take care of every detail so you can simply enjoy. Ready to discover Ushuaia in a unique way?</p>
 
                                 <hr /> <h3>🧊 El Calafate, the land of glaciers</h3>
-                                <span class="image fit"><img src="../images/calafate.jpg" alt="Photo of Perito Moreno Glacier" /></span>
+                                <a href="../images/calafate/foto-1.jpg" data-lightbox="gallery-calafate" data-title="Perito Moreno Glacier">
+                                    <span class="image fit"><img src="../images/calafate/foto-1.jpg" alt="Main photo of El Calafate" /></span>
+                                </a>
+                                <div hidden>
+                                    <a href="../images/calafate/foto-2.jpg" data-lightbox="gallery-calafate" data-title="The Blue Giant"></a>
+                                    <a href="../images/calafate/foto-3.jpg" data-lightbox="gallery-calafate" data-title="Lago Argentino Navigation"></a>
+                                    <a href="../images/calafate/foto-4.jpg" data-lightbox="gallery-calafate" data-title="Heart of Ice"></a>
+                                    <a href="../images/calafate/foto-5.jpg" data-lightbox="gallery-calafate" data-title="Lake and Glacier"></a>
+                                    <a href="../images/calafate/foto-6.jpg" data-lightbox="gallery-calafate" data-title="Glacier Immensity"></a>
+                                    <a href="../images/calafate/foto-7.jpg" data-lightbox="gallery-calafate" data-title="Eternal Patagonia"></a>
+                                </div>
                                 <p>Discover the magic of El Calafate with us!</p>
                                 <p>❄️ The heart of Patagonia awaits you with breathtaking landscapes, endless skies, and one of the world’s most impressive natural wonders: the Perito Moreno Glacier.</p>
                                 <p>🏔️ Walk along scenic boardwalks with unique views, feel the thrill of a boat ride in front of the glacier, or dare to step onto the ice for an unforgettable adventure.</p>
@@ -385,6 +409,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         <div id="bg"></div>
 
         <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/lightbox.min.js"></script>
             <script src="../assets/js/browser.min.js"></script>
             <script src="../assets/js/breakpoints.min.js"></script>
             <script src="../assets/js/util.js"></script>

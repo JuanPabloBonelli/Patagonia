@@ -298,10 +298,17 @@
 							location.hash = '';
 						});
 
-				// Prevent clicks from inside article from bubbling.
-					$this.on('click', function(event) {
-						event.stopPropagation();
-					});
+				// Prevent clicks from inside article from bubbling,
+				// except those meant for Lightbox.
+				$this.on('click', function(event) {
+					const $target = $(event.target);
+
+					// Si el clic viene de un enlace con data-lightbox o su contenido, no bloquear
+					if ($target.is('a[data-lightbox]') || $target.parents('a[data-lightbox]').length)
+						return;
+
+					event.stopPropagation();
+				});
 
 			});
 
