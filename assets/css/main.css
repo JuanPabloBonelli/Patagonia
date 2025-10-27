@@ -1159,7 +1159,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background-image: url("/images/hero.png");
+			background-image: url("../../images/hero.png");
 			opacity: 0.4;
 			filter: brightness(1) contrast(1);
 			background-position: center;
