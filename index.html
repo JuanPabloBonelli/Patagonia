@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="assets/css/lightbox.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 	</head>
 	<body class="is-preload">
 
@@ -175,7 +176,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contacto</h2>
-								<form method="post" action="https://formsubmit.co/juampibonelli@hotmail.com">        
+								<form id="contactForm" method="post" action="https://formsubmit.co/info@patagoniatours.travel">        
       								  <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Patagonia Tours Web" />
 									<div class="fields">
 										<div class="field half">
@@ -469,7 +470,62 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/lightbox.min.js"></script> 
+			<script src="assets/js/lightbox.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+		<script>
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
+              e.preventDefault();
+              const form = e.target;
+
+              Swal.fire({
+                title: 'Enviando...', // <-- Podrías traducir esto en en/index.html
+                text: 'Por favor, esperá un momento.',
+                allowOutsideClick: false,
+                didOpen: () => Swal.showLoading()
+              });
+
+              fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' } // <-- MUY IMPORTANTE PARA FORMSUBMIT CON AJAX
+              }).then(response => {
+                if (response.ok) {
+                  Swal.fire({
+                    icon: 'success',
+                    title: '¡Mensaje enviado!', // <-- Traducir en inglés
+                    text: 'Gracias por contactarnos. Te responderemos pronto.',
+                    confirmButtonColor: '#1B1C1D'
+                  });
+                  form.reset();
+                } else {
+                  // Manejar error si Formsubmit falla (raro)
+                  response.json().then(data => { // Intenta obtener más detalles del error
+                     Swal.fire({
+                        icon: 'error',
+                        title: 'Error al enviar', // <-- Traducir en inglés
+                        text: data.message || 'Por favor, intentá de nuevo más tarde.',
+                        confirmButtonColor: '#d33'
+                     });
+                  }).catch(() => { // Si no hay detalles JSON
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Error al enviar', // <-- Traducir en inglés
+                        text: 'Por favor, intentá de nuevo más tarde.',
+                        confirmButtonColor: '#d33'
+                      });
+                  });
+                }
+              }).catch(() => {
+                // Manejar error de red
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Error de red', // <-- Traducir en inglés
+                  text: 'Verificá tu conexión a internet.',
+                  confirmButtonColor: '#d33'
+                });
+              });
+            });
+        </script> 
 
 	</body>
 </html>
