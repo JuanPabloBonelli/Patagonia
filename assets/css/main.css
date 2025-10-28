@@ -1666,3 +1666,17 @@ input, select, textarea {
 		#main article p {
     text-align: justify;
 }
+
+		/* --- ESTILOS PERSONALIZADOS --- */
+
+		#main article p {
+			text-align: justify;
+		}
+
+		/* Estilo para el cambio de idioma en el footer */
+		#language-switcher a {
+			font-size: 0.8rem;      /* Hacemos la letra más grande (original era 0.6rem) */  
+			opacity: 1;             /* Hacemos que sea un poco menos opaco que el resto */
+			/* Podrías agregar más estilos si querés, como: */
+			/* color: #a2a2a2; */   /* Un color diferente */
+		}
