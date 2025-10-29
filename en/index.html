@@ -479,60 +479,52 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             <script src="../assets/js/main.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
-        <script>
-            document.getElementById("contactForm").addEventListener("submit", function (e) {
-              e.preventDefault();
-              const form = e.target;
+            <script>
+                    $(document).ready(function() {
+                    $("#contactForm").on("submit", function(e) {
+                        e.preventDefault();
+                        const form = this;
 
-              Swal.fire({
-                title: 'Sending...', // <-- Podrías traducir esto en en/index.html
-                text: 'Please wait a moment.',
-                allowOutsideClick: false,
-                didOpen: () => Swal.showLoading()
-              });
+                        Swal.fire({
+                        title: 'Sending...',
+                        text: 'Please wait a moment.',
+                        allowOutsideClick: false,
+                        didOpen: () => Swal.showLoading()
+                        });
 
-              fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' } // <-- MUY IMPORTANTE PARA FORMSUBMIT CON AJAX
-              }).then(response => {
-                if (response.ok) {
-                  Swal.fire({
-                    icon: 'success',
-                    title: 'Message Sent!', // <-- Traducir en inglés
-                    text: 'Thank you for contacting us. We will get back to you soon.',
-                    confirmButtonColor: '#1B1C1D'
-                  });
-                  form.reset();
-                } else {
-                  // Manejar error si Formsubmit falla (raro)
-                  response.json().then(data => { // Intenta obtener más detalles del error
-                     Swal.fire({
-                        icon: 'error',
-                        title: 'Error Sending', // <-- Traducir en inglés
-                        text: data.message || 'Please try again later.',
-                        confirmButtonColor: '#d33'
-                     });
-                  }).catch(() => { // Si no hay detalles JSON
-                      Swal.fire({
-                        icon: 'error',
-                        title: 'Error Sending', // <-- Traducir en inglés
-                        text: 'Please try again later.',
-                        confirmButtonColor: '#d33'
-                      });
-                  });
-                }
-              }).catch(() => {
-                // Manejar error de red
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Error de red', // <-- Traducir en inglés
-                  text: 'Verificá tu conexión a internet.',
-                  confirmButtonColor: '#d33'
-                });
-              });
-            });
-        </script>
+                        fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                        }).then(response => {
+                        if (response.ok) {
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Message Sent!',
+                            text: 'Thank you for contacting us. We will get back to you soon.',
+                            confirmButtonColor: '#1B1C1D'
+                            });
+                            form.reset();
+                        } else {
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Error Sending',
+                            text: 'Please try again later.',
+                            confirmButtonColor: '#d33'
+                            });
+                        }
+                        }).catch(() => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Network Error',
+                            text: 'Please check your internet connection.',
+                            confirmButtonColor: '#d33'
+                        });
+                        });
+                    });
+                    });
+            </script>
+
 
     </body>
 </html>
