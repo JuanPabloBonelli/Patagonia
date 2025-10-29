@@ -1751,3 +1751,21 @@ input, select, textarea {
     }
 
 }
+
+/* --- Agrandar CÍRCULO y el ÍCONO de WhatsApp --- */
+
+/* 1. Esto agranda el CÍRCULO (el contenedor) */
+#contact .icons a.fa-whatsapp {
+  /* Probá con valores más grandes si querés */
+  width: 3.5em;
+  height: 3.5em;
+  
+  /* Esta es la clave para centrar el ícono (debe ser igual al height) */
+  line-height: 3.5em; 
+}
+
+/* 2. Esto agranda el ÍCONO (el símbolo de WP de adentro) */
+#contact .icons a.fa-whatsapp::before {
+  /* Este es el tamaño del símbolo DENTRO del círculo */
+  font-size: 2em; /* Probá este valor */
+}
